@@ -1,10 +1,13 @@
 package dev.rosewood.myplugin;
 
 import dev.rosewood.guiframework.GuiFramework;
+import dev.rosewood.myplugin.manager.CommandManager;
+import dev.rosewood.myplugin.manager.ConfigurationManager;
+import dev.rosewood.myplugin.manager.DataManager;
+import dev.rosewood.myplugin.manager.LocaleManager;
 import dev.rosewood.rosegarden.RosePlugin;
-import dev.rosewood.rosegarden.manager.*;
+import dev.rosewood.rosegarden.manager.Manager;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MyPlugin extends RosePlugin {
@@ -17,7 +20,7 @@ public class MyPlugin extends RosePlugin {
     }
 
     public MyPlugin() {
-        super(-1, -1, null, null, null, null);
+        super(-1, -1, ConfigurationManager.class, DataManager.class, LocaleManager.class, CommandManager.class);
 
         instance = this;
     }
