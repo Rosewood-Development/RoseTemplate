@@ -1,10 +1,10 @@
 package dev.rosewood.myplugin.manager;
 
+import dev.rosewood.myplugin.command.ExampleCommandWrapper;
 import dev.rosewood.rosegarden.RosePlugin;
 import dev.rosewood.rosegarden.command.framework.RoseCommandWrapper;
 import dev.rosewood.rosegarden.manager.AbstractCommandManager;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CommandManager extends AbstractCommandManager {
@@ -15,7 +15,7 @@ public class CommandManager extends AbstractCommandManager {
 
     @Override
     public List<Class<? extends RoseCommandWrapper>> getRootCommands() {
-        return new ArrayList<>();
+        return List.of(ExampleCommandWrapper.class);
     }
 
     @Override
