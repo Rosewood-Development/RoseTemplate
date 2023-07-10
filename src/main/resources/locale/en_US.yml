@@ -21,8 +21,6 @@ command-help-description: 'Displays the help menu... You have arrived'
 command-help-title: '&eAvailable Commands:'
 command-help-list-description: '&8 - &d/%cmd% %subcmd% %args% &7- %desc%'
 command-help-list-description-no-args: '&8 - &d/%cmd% %subcmd% &7- %desc%'
-command-help-wiki: '&9&o&nClick here to learn how to create loot tables.'
-command-help-wiki-hover: '&7%url%'
 
 # Reload Command
 command-reload-description: 'Reloads the plugin'
