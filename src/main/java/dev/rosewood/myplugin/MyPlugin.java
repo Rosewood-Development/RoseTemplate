@@ -7,6 +7,7 @@ import dev.rosewood.myplugin.manager.DataManager;
 import dev.rosewood.myplugin.manager.LocaleManager;
 import dev.rosewood.rosegarden.RosePlugin;
 import dev.rosewood.rosegarden.manager.Manager;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -20,23 +21,28 @@ public class MyPlugin extends RosePlugin {
     }
 
     public MyPlugin() {
-        super(-1, -1, ConfigurationManager.class, DataManager.class, LocaleManager.class, CommandManager.class);
+        super(-1, -1,
+                ConfigurationManager.class,
+                DataManager.class,
+                LocaleManager.class,
+                CommandManager.class
+        );
 
         instance = this;
     }
 
     @Override
-    protected void enable() {
+    public void enable() {
         this.framework = GuiFramework.instantiate(this);
     }
 
     @Override
-    protected void disable() {
+    public void disable() {
 
     }
 
     @Override
-    protected List<Class<? extends Manager>> getManagerLoadPriority() {
+    protected @NotNull List<Class<? extends Manager>> getManagerLoadPriority() {
         return List.of();
     }
 

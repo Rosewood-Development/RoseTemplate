@@ -1,11 +1,13 @@
 package dev.rosewood.myplugin.manager;
 
-import dev.rosewood.myplugin.command.ExampleCommandWrapper;
+import dev.rosewood.myplugin.command.command.ExampleCommand;
 import dev.rosewood.rosegarden.RosePlugin;
-import dev.rosewood.rosegarden.command.framework.RoseCommandWrapper;
+import dev.rosewood.rosegarden.command.framework.BaseRoseCommand;
 import dev.rosewood.rosegarden.manager.AbstractCommandManager;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
+import java.util.function.Function;
 
 public class CommandManager extends AbstractCommandManager {
 
@@ -14,13 +16,8 @@ public class CommandManager extends AbstractCommandManager {
     }
 
     @Override
-    public List<Class<? extends RoseCommandWrapper>> getRootCommands() {
-        return List.of(ExampleCommandWrapper.class);
-    }
-
-    @Override
-    public List<String> getArgumentHandlerPackages() {
-        return List.of("dev.rosewood.myplugin.command.argument");
+    public @NotNull List<Function<RosePlugin, BaseRoseCommand>> getRootCommands() {
+        return List.of(ExampleCommand::new);
     }
 
 }

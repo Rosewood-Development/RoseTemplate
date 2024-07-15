@@ -9,5 +9,4 @@ public class LocaleManager extends AbstractLocaleManager {
         super(rosePlugin);
     }
 
-
 }

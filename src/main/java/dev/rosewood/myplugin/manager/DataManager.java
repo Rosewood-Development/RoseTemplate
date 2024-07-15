@@ -4,6 +4,7 @@ import dev.rosewood.myplugin.database.migration._1_CreateInitialTables;
 import dev.rosewood.rosegarden.RosePlugin;
 import dev.rosewood.rosegarden.database.DataMigration;
 import dev.rosewood.rosegarden.manager.AbstractDataManager;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -14,7 +15,7 @@ public class DataManager extends AbstractDataManager {
     }
 
     @Override
-    public List<Class<? extends DataMigration>> getDataMigrations() {
+    public @NotNull List<Class<? extends DataMigration>> getDataMigrations() {
         return List.of(_1_CreateInitialTables.class);
     }
 
