@@ -2,17 +2,18 @@ import org.apache.tools.ant.filters.ReplaceTokens
 
 plugins {
     id "java-library"
-    id "com.github.johnrengelman.shadow" version "7.1.0"
+    id "com.github.johnrengelman.shadow" version "8.1.0"
     id "maven-publish"
 }
 
 group = 'dev.rosewood'
 version = '1.0-SNAPSHOT'
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
 
 java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
-    }
+    toolchain.languageVersion.set(JavaLanguageVersion.of(21))
+    disableAutoTargetJvm()
 }
 
 compileJava {
@@ -43,7 +44,7 @@ shadowJar {
 
     relocate("dev.rosewood.rosegarden", "${project.group}.myplugin.rosegarden")
 
-    // Remove comments if you're not using SQL/SQLite
+    // If you're not using SQL, you can exclude the following packages
 //    exclude 'dev/rosewood/rosegarden/lib/hikaricp/**/*.class'
 //    exclude 'dev/rosewood/rosegarden/lib/slf4j/**/*.class'
 }
