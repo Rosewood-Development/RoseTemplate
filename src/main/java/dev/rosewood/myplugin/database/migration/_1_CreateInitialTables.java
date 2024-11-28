@@ -9,17 +9,20 @@ import java.sql.SQLException;
 
 public class _1_CreateInitialTables extends DataMigration {
 
+    private static final String CREATE_TABLE = """
+            CREATE TABLE IF NOT EXISTS `myplugin` (
+                `uuid` VARCHAR(36) NOT NULL,
+                PRIMARY KEY (`uuid`)
+            )
+            """;
+
     public _1_CreateInitialTables() {
         super(1);
     }
 
     @Override
     public void migrate(DatabaseConnector connector, Connection connection, String tablePrefix) throws SQLException {
-        final String query = "CREATE TABLE IF NOT EXISTS `" + tablePrefix + "myplugin` (" +
-                "`uuid` VARCHAR(36) NOT NULL, " +
-                "PRIMARY KEY (`uuid`))";
-
-        try (PreparedStatement statement = connection.prepareStatement(query)) {
+        try (PreparedStatement statement = connection.prepareStatement(CREATE_TABLE)) {
             statement.executeUpdate();
         }
     }

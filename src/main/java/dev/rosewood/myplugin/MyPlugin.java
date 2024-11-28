@@ -1,10 +1,12 @@
 package dev.rosewood.myplugin;
 
+import dev.rosewood.myplugin.config.SettingKey;
 import dev.rosewood.myplugin.manager.CommandManager;
-import dev.rosewood.myplugin.manager.ConfigurationManager;
 import dev.rosewood.myplugin.manager.DataManager;
+import dev.rosewood.myplugin.manager.ExampleManager;
 import dev.rosewood.myplugin.manager.LocaleManager;
 import dev.rosewood.rosegarden.RosePlugin;
+import dev.rosewood.rosegarden.config.RoseSetting;
 import dev.rosewood.rosegarden.manager.Manager;
 import org.jetbrains.annotations.NotNull;
 
@@ -20,7 +22,6 @@ public class MyPlugin extends RosePlugin {
 
     public MyPlugin() {
         super(-1, -1,
-                ConfigurationManager.class,
                 DataManager.class,
                 LocaleManager.class,
                 CommandManager.class
@@ -35,12 +36,15 @@ public class MyPlugin extends RosePlugin {
 
     @Override
     public void disable() {
-
     }
 
     @Override
     protected @NotNull List<Class<? extends Manager>> getManagerLoadPriority() {
-        return List.of();
+        return List.of(ExampleManager.class);
     }
 
+    @Override
+    protected @NotNull List<RoseSetting<?>> getRoseConfigSettings() {
+        return SettingKey.getKeys();
+    }
 }
