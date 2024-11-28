@@ -32,7 +32,6 @@ repositories {
 
 dependencies {
     api "dev.rosewood:rosegarden:${gardenVersion}"
-    api "dev.rosewood:guiframework:${guiVersion}"
 
     // Decide whether you want to use Spigot or Paper API (Paper is recommended)
     compileOnly "io.papermc.paper:paper-api:${spigotVersion}-R0.1-SNAPSHOT"
