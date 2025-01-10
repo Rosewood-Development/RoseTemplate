@@ -9,10 +9,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static dev.rosewood.rosegarden.config.RoseSettingSerializers.STRING;
-import static dev.rosewood.rosegarden.config.RoseSettingSerializers.INTEGER;
 import static dev.rosewood.rosegarden.config.RoseSettingSerializers.BOOLEAN;
 import static dev.rosewood.rosegarden.config.RoseSettingSerializers.DOUBLE;
+import static dev.rosewood.rosegarden.config.RoseSettingSerializers.INTEGER;
+import static dev.rosewood.rosegarden.config.RoseSettingSerializers.STRING;
 import static dev.rosewood.rosegarden.config.RoseSettingSerializers.STRING_LIST;
 
 public class SettingKey {

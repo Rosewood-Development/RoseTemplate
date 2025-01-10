@@ -27,7 +27,6 @@ public class DataManager extends AbstractDataManager {
      * Save a list of users to the database asynchronously
      *
      * @param users The list of users to save
-     *
      * @return A completable future once the users have been saved
      */
     public CompletableFuture<Void> saveUsers(List<UUID> users) {

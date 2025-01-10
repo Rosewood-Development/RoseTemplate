@@ -47,4 +47,5 @@ public class MyPlugin extends RosePlugin {
     protected @NotNull List<RoseSetting<?>> getRoseConfigSettings() {
         return SettingKey.getKeys();
     }
+
 }
