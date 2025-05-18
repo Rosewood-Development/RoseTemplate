@@ -6,11 +6,11 @@ import dev.rosewood.myplugin.manager.DataManager;
 import dev.rosewood.myplugin.manager.ExampleManager;
 import dev.rosewood.myplugin.manager.LocaleManager;
 import dev.rosewood.rosegarden.RosePlugin;
-import dev.rosewood.rosegarden.config.RoseSetting;
+import dev.rosewood.rosegarden.config.SettingHolder;
 import dev.rosewood.rosegarden.manager.Manager;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
+import org.jetbrains.annotations.Nullable;
 
 public class MyPlugin extends RosePlugin {
 
@@ -32,20 +32,22 @@ public class MyPlugin extends RosePlugin {
 
     @Override
     public void enable() {
+
     }
 
     @Override
     public void disable() {
+
     }
 
     @Override
-    protected @NotNull List<Class<? extends Manager>> getManagerLoadPriority() {
+    protected List<Class<? extends Manager>> getManagerLoadPriority() {
         return List.of(ExampleManager.class);
     }
 
     @Override
-    protected @NotNull List<RoseSetting<?>> getRoseConfigSettings() {
-        return SettingKey.getKeys();
+    protected SettingHolder getRoseConfigSettingHolder() {
+        return SettingKey.INSTANCE;
     }
 
 }

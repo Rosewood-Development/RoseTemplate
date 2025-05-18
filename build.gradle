@@ -32,10 +32,10 @@ repositories {
 }
 
 dependencies {
-    api "dev.rosewood:rosegarden:${gardenVersion}"
+    api "dev.rosewood:rosegarden:$gardenVersion"
 
     // Decide whether you want to use Spigot or Paper API (Paper is recommended)
-    compileOnly "io.papermc.paper:paper-api:${spigotVersion}-R0.1-SNAPSHOT"
+    compileOnly "io.papermc.paper:paper-api:$spigotVersion-R0.1-SNAPSHOT"
 //    compileOnly "org.spigotmc:spigot-api:${spigotVersion}-R0.1-SNAPSHOT"
 }
 
@@ -54,7 +54,7 @@ processResources {
     from(sourceSets.main.resources.srcDirs) {
         include '**/*.yml'
         filter ReplaceTokens, tokens: ["version": project.property("version")]
-        duplicatesStrategy DuplicatesStrategy.INCLUDE
+        duplicatesStrategy = DuplicatesStrategy.INCLUDE
     }
 }
 
@@ -74,8 +74,8 @@ publishing {
         if (project.hasProperty('mavenUser') && project.hasProperty('mavenPassword')) {
             maven {
                 credentials {
-                    username project.mavenUser
-                    password project.mavenPassword
+                    username = project.mavenUser
+                    password = project.mavenPassword
                 }
 
                 def releasesRepoUrl = 'https://repo.rosewooddev.io/repository/public-releases/'
